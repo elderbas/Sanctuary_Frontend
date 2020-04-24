@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  /* Example of a google font from the api, included in html <head> */
+  /* font-family: 'Tangerine', serif; */
 }
 
 .App-logo {
@@ -36,3 +38,183 @@
     transform: rotate(360deg);
   }
 }
+
+/* Home Page  */
+
+.HomeBackgroundImage {
+  background: url("/yosemitebackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  position: relative;
+}
+
+.Logo {
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.SanctuarySign {
+  position: absolute;
+  top: 0vh;
+  left: 40vh;
+  z-index: 9999;
+  color: white;
+  font-size: 180px;
+  font-family: "Manrope", sans-serif;
+}
+
+.Tagline {
+  position: absolute;
+  top: 27vh;
+  left: 45vh;
+  z-index: 9999;
+  color: white;
+  font-size: 28px;
+  font-family: "Manrope", sans-serif;
+  font-style: bold;
+}
+
+/* Sign Up Page */
+
+.SignUpBackgroundImage {
+  background: url("/grandcanyonbackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  position: relative;
+}
+
+.SignUpForm {
+  position: center;
+  margin-top: 150px;
+  margin-left: 30%;
+  margin-right: 35%;
+  width: 40%;
+  padding: 30px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  border: 3px solid rgb(80, 79, 79);
+}
+
+.form-control {
+  border: 2px solid;
+}
+
+/* Login Page */
+
+.LoginBackgroundImage {
+  background: url("/coloradobackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  position: relative;
+}
+
+.LoginForm {
+  position: center;
+  margin-top: 180px;
+  margin-left: 30%;
+  margin-right: 35%;
+  width: 40%;
+  padding: 30px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  border: 3px solid rgb(80, 79, 79);
+}
+
+/* Trips Page */
+
+.InnerLogo {
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 0;
+  font-style: italic;
+  color: rgb(43, 66, 56);
+}
+
+.TripsBackgroundImage {
+  background: url("/glacierbackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 97vh;
+  background-position: center center;
+  position: relative;
+}
+
+.TripsPhrase {
+  position: absolute;
+  top: 20vh;
+  left: 30vh;
+  z-index: 9999;
+  color: white;
+  font-size: 70px;
+  font-family: "Manrope", sans-serif;
+  font-weight: bold;
+}
+
+.TripsList {
+  position: absolute;
+  top: 20vh;
+  left: 100vh;
+  z-index: 9999;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  border: 3px solid rgb(80, 79, 79);
+}
+
+/* Profile Page */
+
+.ProfileBackgroundImage {
+  background: url("/redwoodbackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  position: relative;
+}
+
+.ProfileForm {
+  position: absolute;
+  top: 20vh;
+  left: 20vh;
+  margin-right: 35%;
+  width: 40%;
+  padding: 30px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  border: 3px solid rgb(80, 79, 79);
+}
+
+.ProfilePhrase {
+  position: absolute;
+  top: 20vh;
+  left: 110vh;
+  z-index: 9999;
+  color: white;
+  font-size: 60px;
+  font-family: "Manrope", sans-serif;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Main Page */
+
+.ParkCard {
+  width: 30vh;
+  height: 30vh;
+  border: 1px dotted;
+}
+
+/* .ParkCardImage {
+
+} */

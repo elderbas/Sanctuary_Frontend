@@ -1,0 +1,19 @@
+import React, { Component } from "react";
+import HomeNavBar from "./HomeNavBar";
+
+class Home extends Component {
+  render() {
+    return (
+      <div>
+        <HomeNavBar />
+        <div className="HomeBackgroundImage"></div>
+
+        <div className="SanctuarySign">Sanctuary</div>
+        <p className="Tagline">An effortless way to plan your next National Park getaway</p>
+
+      </div>
+    );
+  }
+}
+
+export default Home;
