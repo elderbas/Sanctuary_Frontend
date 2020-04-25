@@ -8,6 +8,8 @@ class Weather extends Component {
     return (
       <div className="Weather">
         Weather Widget
+        goes here
+        {/* Not pulling from API, maybe because of login issues */}
         <ReactWeather
           forecast="today"
           apikey="ed44ba84387bb0539b31ae64430ef2a4"
