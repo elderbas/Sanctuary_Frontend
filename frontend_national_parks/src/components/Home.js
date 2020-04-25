@@ -9,7 +9,7 @@ class Home extends Component {
         <div className="HomeBackgroundImage"></div>
 
         <div className="SanctuarySign">Sanctuary</div>
-        <p className="Tagline">An effortless way to plan your next National Park getaway</p>
+        <p className="Tagline">An effortless way to plan a National Park getaway</p>
 
       </div>
     );

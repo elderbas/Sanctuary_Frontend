@@ -8,11 +8,7 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <InnerNav/>
-                <br></br>
-                Main Page
-                <br></br>
-                Shows park cards, calendar, weather
+                <InnerNav userEmail={this.props.userEmail}/>
                 <ParkList/>
                 <Calendar/>
                 <Weather/>

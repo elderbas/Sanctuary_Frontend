@@ -18,17 +18,21 @@ class ParkList extends Component {
   render() {
     let parkList = this.state.parks;
     return (
-      <div>
-        <div>
-          {parkList.map((park) => (
-            <ParkCard
-              key={park.id}
-              imageURL={park.image1url}
-              altText={park.image1altText}
-            />
-          ))}
-          Park List Container holding all park cards
-        </div>
+      <div className="ParkList">
+        {parkList.map((park) => (
+          <ParkCard
+            key={park.id}
+            imageURL={park.image1url}
+            altText={park.image1altText}
+            fullName={park.fullName}
+            city={park.addresscity}
+            state={park.addressstateCode}
+            description={park.description}
+            emailAddress={park.emailAddress}
+            phoneNumber={park.phoneNumber}
+            website={park.website}
+          />
+        ))}
       </div>
     );
   }

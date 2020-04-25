@@ -31,7 +31,7 @@ class InnerNav extends Component {
           <ul class="navbar-nav ml-auto">
           <li class="nav-item">
           <span class="navbar-text mr-5">
-      Hi USER!
+      Hi {this.props.userEmail}
     </span>
             </li>
 

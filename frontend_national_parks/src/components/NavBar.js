@@ -4,7 +4,7 @@ class NavBar extends Component {
   render() {
     return (
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="/main">
+          <a class="navbar-brand" href="/">
           <h3 className="Logo">Sanctuary</h3>
         </a>
         <button
@@ -26,7 +26,7 @@ class NavBar extends Component {
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="/login">
-                Login
+                Log In
               </a>
             </li>
 

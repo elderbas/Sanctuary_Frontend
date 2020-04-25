@@ -70,7 +70,7 @@
 .Tagline {
   position: absolute;
   top: 27vh;
-  left: 45vh;
+  left: 55vh;
   z-index: 9999;
   color: white;
   font-size: 28px;
@@ -151,7 +151,7 @@
 
 .TripsPhrase {
   position: absolute;
-  top: 20vh;
+  top: 45vh;
   left: 30vh;
   z-index: 9999;
   color: white;
@@ -209,12 +209,75 @@
 
 /* Main Page */
 
+.ParkList {
+  margin-top: 75px;
+  padding: 10px;
+  margin-left: 40px;
+  columns: 4;
+  width: 60%;
+  display: inline-block;
+}
 .ParkCard {
-  width: 30vh;
-  height: 30vh;
-  border: 1px dotted;
+  padding: 10px;
+  object-fit: scale-down;
+  display: inline-block;
 }
 
-/* .ParkCardImage {
+.parkCardImage {
+  opacity: 100%;
+}
 
-} */
+.parkCardImage:hover {
+  opacity: 40%;
+}
+
+.Calendar {
+  width: 30%;
+  margin: 60px 80px;
+  padding: 20px;
+  display: inline-block;
+  vertical-align: top;
+  position: fixed;
+}
+
+.Weather {
+  width: 30%;
+  margin: 600px 70px;
+  padding: 20px;
+  display: inline-block;
+  border: 1px dotted;
+  vertical-align: top;
+  position: fixed;
+}
+
+ /* Modal */
+
+.primaryModal {
+  position: relative;
+  top: 3%;
+  right: 16%;
+  transform: translateY(-50%);
+}
+
+.parkDescription {
+float:left;
+width: 50%;
+padding: 15px;
+padding-bottom: 0px;
+}
+
+.parkContactInfo {
+  float:left;
+  width: 40%;
+  text-align: right;
+  padding-top: 10%;
+  padding-bottom: 0px;
+}
+
+.modalImage {
+  text-align: center;
+}
+
+.ModalHeader {
+  text-align: center;
+}
