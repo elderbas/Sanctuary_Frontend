@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
+import DateRangePicker from "@wojtekmaj/react-daterange-picker";
 
 class ParkCard extends Component {
   constructor() {
@@ -8,18 +9,42 @@ class ParkCard extends Component {
 
     this.state = {
       modalOpen: false,
+      date: [new Date(), new Date()],
+      id: null,
     };
   }
+
+  onChange = (date) => this.setState({ date });
+
+  saveTrip = () => {
+    fetch(`http://localhost:3000/trips`, {
+      method: "POST",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        start_date: this.state.date[0],
+        end_date: this.state.date[1],
+ 
+      }),
+    });
+  };
 
   showModal = () => {
     this.setState((prevState) => ({
       modalOpen: !prevState.modalOpen,
     }));
+
+    this.setState({
+      id: this.props.key
+    })
   };
 
   render() {
     return (
-      <div className="ParkCard">
+      <div className="ParkCard"           key={this.props.key}>
         <img
           src={this.props.imageURL}
           alt={this.props.altText}
@@ -27,6 +52,7 @@ class ParkCard extends Component {
           height="200px"
           width="200px"
           margin="5px"
+
           onClick={this.showModal}
         ></img>
 
@@ -36,13 +62,13 @@ class ParkCard extends Component {
           dialogClassName={"primaryModal"}
         >
           <Modal.Header>
-            <div className="ModalHeader"
+            <div
+              className="ModalHeader"
               style={{
-                // textAlign: "center",
+ 
                 fontSize: "30px",
                 color: "dark grey",
                 paddingLeft: "120px",
-                
               }}
             >
               {this.props.fullName}
@@ -73,6 +99,24 @@ class ParkCard extends Component {
             </div>
             <div className="parkDescription">{this.props.description}</div>
             <div className="parkContactInfo">
+              Select trip dates:
+              <br></br>
+              <br></br>
+              <DateRangePicker
+                onChange={this.onChange}
+                value={this.state.date}
+              />
+              <br></br>
+              <br></br>
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-sm"
+                onClick={this.saveTrip}
+              >
+                Save Trip
+              </button>
+              <br></br>
+              <br></br>
               {this.props.emailAddress}
               <br></br>
               {this.props.phoneNumber}

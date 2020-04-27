@@ -1,18 +1,24 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 class InnerNav extends Component {
+
+  removeToken = () => {
+    localStorage.removeItem('token')
+}
+
   render() {
     return (
       <nav
-        class="navbar fixed-top navbar-expand-lg navbar-light"
+        className="navbar fixed-top navbar-expand-lg navbar-light"
         style={{ backgroundColor: "white" }}
       >
-        <a class="navbar-brand" href="/main">
+        <a className="navbar-brand" href="/main">
           <h3 className="InnerLogo">Sanctuary</h3>
         </a>
 
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -20,42 +26,42 @@ class InnerNav extends Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
         <div
-          class="collapse navbar-collapse w-100 order-3 dual-collapse2"
+          className="collapse navbar-collapse w-100 order-3 dual-collapse2"
           id="navbarSupportedContent"
         >
           
-          <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-          <span class="navbar-text mr-5">
-      Hi {this.props.userEmail}
+          <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+          <span className="navbar-text mr-5">
+      Hi {this.props.currentUser}
     </span>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="/main">
+            <li className="nav-item">
+              <a className="nav-link" href="/main">
                 Main
               </a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="/trips">
+            <li className="nav-item">
+              <a className="nav-link" href="/trips">
                 Trips
               </a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="/profile">
+            <li className="nav-item">
+              <a className="nav-link" href="/profile">
                 Profile
               </a>
             </li>
 
-            <button type="button" class="btn btn-outline-secondary btn-sm mr-3">
+            <button type="button" className="btn btn-outline-secondary btn-sm mr-3" onClick={this.removeToken}>
               Log Out
-              {/* On click, log user out and re-route to "/" */}
+              
             </button>
           </ul>
         </div>

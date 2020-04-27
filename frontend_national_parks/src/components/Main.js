@@ -5,10 +5,11 @@ import Calendar from "./Calendar";
 import Weather from "./Weather";
 
 class Main extends Component {
+
     render() {
         return (
             <div>
-                <InnerNav userEmail={this.props.userEmail}/>
+                <InnerNav userEmail={this.props.userEmail} user={this.props.currentUser}/>
                 <ParkList/>
                 <Calendar/>
                 <Weather/>
