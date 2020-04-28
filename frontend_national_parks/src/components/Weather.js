@@ -1,15 +1,20 @@
 import React, { Component } from "react";
-// import Forecast from "react-forecast";
-import ReactWeather from "react-open-weather";
-import "react-open-weather/lib/css/ReactWeather.css";
 
 class Weather extends Component {
   render() {
-    let apikey = "ed44ba84387bb0539b31ae64430ef2a4";
-
     return (
       <div className="Weather">
-        <ReactWeather forecast="today" apikey={apikey} type="auto" />
+        <a
+          class="weatherwidget-io"
+          href="https://forecast7.com/en/30d27n97d74/austin/?unit=us"
+          data-label_1="AUSTIN"
+          data-label_2="WEATHER"
+          data-font="Open Sans"
+          data-icons="Climacons"
+          data-theme="pure"
+        >
+          AUSTIN WEATHER
+        </a>
       </div>
     );
   }

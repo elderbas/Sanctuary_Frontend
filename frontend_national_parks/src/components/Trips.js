@@ -3,7 +3,9 @@ import InnerNav from "./InnerNav";
 
 class Trips extends Component {
   state = {
+    currentUser: "",
     trips: [],
+    userTrips: [],
   };
 
   componentDidMount() {
@@ -11,6 +13,13 @@ class Trips extends Component {
       .then((response) => response.json())
       .then((trips) => this.setState({ trips }));
   }
+
+  populateUserTrips = () => {
+    let userTrips = this.state.trips.filter(
+      (trip) => trip.user.first_name === this.state.currentUser
+    );
+    this.setState({ userTrips: userTrips });
+  };
 
   render() {
     console.log(this.state.trips);

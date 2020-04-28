@@ -8,7 +8,6 @@ class Login extends Component {
     super();
 
     this.state = {
-      currentUser: "",
       redirect: null,
       fields: {
         email: "",
@@ -45,26 +44,27 @@ class Login extends Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("data", data);
         localStorage.setItem("token", data.jwt);
-        this.setState({ currentUser: data });
+        localStorage.setItem("currentUserEmail", data.email);
       });
 
     this.setState({ redirect: "/main" });
+    this.findUser();
   };
 
   findUser = () => {
+    let token = localStorage.getItem("token")
+    console.log("token is", token)
     fetch(`http://localhost:3000/current_user`, {
       method: "GET",
-      header: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+      headers: {
+        "Authorization": `Token ` + token,
       },
     })
       .then((response) => response.json())
       .then((data) => {
         console.log("current user", data);
       });
-    this.findUser();
   };
 
   render() {

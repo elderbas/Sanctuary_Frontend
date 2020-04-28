@@ -4,13 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DateRangePicker from "@wojtekmaj/react-daterange-picker";
 
 class ParkCard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       modalOpen: false,
       date: [new Date(), new Date()],
-      id: null,
+      parkId: null,
     };
   }
 
@@ -37,13 +37,13 @@ class ParkCard extends Component {
     }));
 
     this.setState({
-      id: this.props.key,
+      parkId: this.props.key
     });
   };
 
   render() {
     return (
-      <div className="ParkCard" key={this.props.key}>
+      <div className="ParkCard" >
         <img
           src={this.props.imageURL}
           alt={this.props.altText}
@@ -138,7 +138,7 @@ class ParkCard extends Component {
               <br></br>
               <br></br>
               <a href={`mailto:${this.props.emailAddress}`}>
-                {this.props.emailAddress}{" "}
+                Direct Email{" "}
               </a>
               <svg
                 class="bi bi-envelope"
@@ -182,7 +182,7 @@ class ParkCard extends Component {
                 />
               </svg>
               <br></br>
-              <a href={this.props.website}>{this.props.website} </a>
+              <a href={this.props.website}>{this.props.fullName} Website </a>
               <svg
                 class="bi bi-info-circle"
                 width="1em"

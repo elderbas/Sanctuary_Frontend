@@ -41,6 +41,7 @@ class ParkList extends Component {
           <ParkCard
             style={{ zIndex: "8888" }}
             key={park.id}
+            parkId={park.id}
             imageURL={park.image1url}
             altText={park.image1altText}
             fullName={park.fullName}

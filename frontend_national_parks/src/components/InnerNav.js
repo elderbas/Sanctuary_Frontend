@@ -4,10 +4,12 @@ import { Redirect } from "react-router-dom";
 class InnerNav extends Component {
   state = {
     redirect: false,
+    user_first_name: "",
   };
 
   logOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("currentUserEmail");
     this.setState({ redirect: true });
   };
 
@@ -16,6 +18,23 @@ class InnerNav extends Component {
       return <Redirect to="/" />;
     }
   };
+
+  componentDidMount() {
+    fetch(`http://localhost:3000/current_user`, {
+      method: "GET",
+      header: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("current user", data);
+      });
+
+    this.setState({
+      user_first_name: localStorage.getItem("currentUserEmail"),
+    });
+  }
 
   render() {
     return (
@@ -46,7 +65,9 @@ class InnerNav extends Component {
         >
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <span className="navbar-text mr-5">Hi Jessica!</span>
+              <span className="navbar-text mr-5">
+                Hi {this.state.user_first_name}
+              </span>
             </li>
 
             <li className="nav-item">

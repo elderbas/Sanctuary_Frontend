@@ -5,7 +5,7 @@ class Profile extends Component {
   state = {
     first_name: "",
     last_name: "",
-    email: "",
+    email: localStorage.getItem("currentUserEmail"),
     password: "",
     password_confirmation: "",
     zipcode: null,
@@ -55,7 +55,8 @@ class Profile extends Component {
                     class="form-control"
                     id="last_name"
                     name="last_name"
-                    placeholder="Last Name"
+                    // placeholder="Last Name"
+                    placeholder="Triana"
                     value={this.state.last_name}
                     onChange={this.handleChange}
                   />
