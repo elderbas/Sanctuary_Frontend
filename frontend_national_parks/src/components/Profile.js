@@ -5,7 +5,7 @@ class Profile extends Component {
   state = {
     first_name: "",
     last_name: "",
-    email: "",
+    email: localStorage.getItem("currentUserEmail"),
     password: "",
     password_confirmation: "",
     zipcode: null,
@@ -43,7 +43,8 @@ class Profile extends Component {
                     class="form-control"
                     id="first_name"
                     name="first_name"
-                    placeholder="First Name"
+                    // placeholder="First Name"
+                    placeholder="Jessica"
                     value={this.state.first_name}
                     onChange={this.handleChange}
                   />
@@ -54,7 +55,8 @@ class Profile extends Component {
                     class="form-control"
                     id="last_name"
                     name="last_name"
-                    placeholder="Last Name"
+                    // placeholder="Last Name"
+                    placeholder="Triana"
                     value={this.state.last_name}
                     onChange={this.handleChange}
                   />
@@ -66,7 +68,8 @@ class Profile extends Component {
                     class="form-control"
                     id="inputEmail4"
                     name="email"
-                    placeholder="Email"
+                    // placeholder="Email"
+                    placeholder="jessica.triana.tx@gmail.com"
                     value={this.state.email}
                     onChange={this.handleChange}
                   />
@@ -78,7 +81,8 @@ class Profile extends Component {
                     class="form-control"
                     id="inputZip"
                     name="zipcode"
-                    placeholder="Zip Code"
+                    // placeholder="Zip Code"
+                    placeholder="78745"
                     value={this.state.zipcode}
                     onChange={this.handleChange}
                   />
@@ -89,7 +93,8 @@ class Profile extends Component {
                     class="form-control"
                     id="inputZip"
                     name="birthday"
-                    placeholder="Birthday"
+                    // placeholder="Birthday"
+                    placeholder="12/05/1990"
                     value={this.state.birthday}
                     onChange={this.handleChange}
                   />

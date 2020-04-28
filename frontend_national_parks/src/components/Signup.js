@@ -1,31 +1,75 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom"
 
 class Signup extends Component {
   state = {
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
-    zipcode: null,
-    birthday: "",
+    redirect: null,
+    user: {
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+      password_confirmation: "",
+      zipcode: null,
+      birthday: "",
+    },
   };
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          email: this.state.email,
+          password: this.state.password,
+          password_confirmation: this.state.password_confirmation,
+          zipcode: this.state.zipcode,
+          birthday: this.state.birthday,
+        },
+      }),
     })
-  }
+    .then((response) => response.json())
+    this.setState({ redirect: "/login"})
+
+  };
 
   render() {
+    if (this.state.redirect) {
+      return ( 
+        <Redirect to={{ pathname: "/login" }}
+        /> 
+      );
+    }
     return (
       <div className="SignUpBackgroundImage">
         <NavBar />
         <br></br>
         <div className="SignUpForm">
-          <h1 style={{ textAlign: "center", fontWeight: "lighter", color: "dark gray" }}>Hello Stranger</h1>
+          <h1
+            style={{
+              textAlign: "center",
+              fontWeight: "lighter",
+              color: "dark gray",
+            }}
+          >
+            Hello Stranger
+          </h1>
           <br></br>
           <form onSubmit={this.handleSubmit}>
             <div class="form-row">
@@ -104,7 +148,6 @@ class Signup extends Component {
                   Passwords must be 8-20 characters long.
                 </small>
               </div>
-             
 
               <div class="form-group col-md-6">
                 <input
@@ -116,21 +159,21 @@ class Signup extends Component {
                   placeholder="Confirm Password"
                   onChange={this.handleChange}
                 />
-                
               </div>
-              
-
-              
             </div>
             <div class="form-row text-center">
-            <div class="col-12">
-              <br></br>
-            <button type="submit" class="btn btn-dark">Sign up</button>
+              <div class="col-12">
+                <br></br>
+                <button type="submit" class="btn btn-dark">
+                  Sign Up
+                </button>
+              </div>
             </div>
-            </div>
-          </form><br></br>
-          <p style={{textAlign: "center", fontSize: "small" }}>Already have an account? Log in<Link to="/login"> here</Link>.</p>
-          
+          </form>
+          <br></br>
+          <p style={{ textAlign: "center", fontSize: "small" }}>
+            Already have an account? Log in<Link to="/login"> here</Link>.
+          </p>
         </div>
       </div>
     );

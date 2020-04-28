@@ -2,7 +2,27 @@ import React, { Component } from "react";
 import InnerNav from "./InnerNav";
 
 class Trips extends Component {
+  state = {
+    currentUser: "",
+    trips: [],
+    userTrips: [],
+  };
+
+  componentDidMount() {
+    fetch(`http://localhost:3000/trips`)
+      .then((response) => response.json())
+      .then((trips) => this.setState({ trips }));
+  }
+
+  populateUserTrips = () => {
+    let userTrips = this.state.trips.filter(
+      (trip) => trip.user.first_name === this.state.currentUser
+    );
+    this.setState({ userTrips: userTrips });
+  };
+
   render() {
+    console.log(this.state.trips);
     return (
       <div>
         <InnerNav />
@@ -13,56 +33,57 @@ class Trips extends Component {
             You have quite<br></br> the adventure<br></br> planned...
           </div>
           <div className="TripsList">
-
-            <h4>National Park Full Name</h4>
-            <h4 style={{ fontWeight: "lighter" }}>Trip Dates</h4>
+            <h4>Yosemite National Park</h4>
+            <h4 style={{ fontWeight: "lighter" }}>May 5 - 8, 2021</h4>
             <span>
               <button
                 type="button"
-                class="btn btn-outline-secondary btn-sm mr-3"
+                class="btn btn-outline-secondary btn-xs mr-3 "
+              >
+                Edit Trip
+              </button>
+              <span>
+                <button type="button" class="btn btn-secondary btn-xs mr-1 ">
+                  Delete Trip
+                </button>
+              </span>
+            </span>
+
+            <br></br>
+            <br></br>
+            <h4>Sequoia & Kings Canyon</h4>
+            <h4 style={{ fontWeight: "lighter" }}>May 9 - 11, 2021</h4>
+
+            <span>
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-xs mr-3 "
               >
                 Edit Trip
               </button>
             </span>
-
             <span>
-              <button type="button" class="btn btn-secondary btn-sm mr-1">
+              <button type="button" class="btn btn-secondary btn-xs mr-1 ">
                 Delete Trip
               </button>
             </span>
-            <br></br><br></br>
-            <h4>National Park Full Name</h4>
-            <h4 style={{ fontWeight: "lighter" }}>Trip Dates</h4>
+
+            <br></br>
+            <br></br>
+            <h4>Death Valley National Park</h4>
+            <h4 style={{ fontWeight: "lighter" }}>May 12 - 14, 2021</h4>
             <span>
               <button
                 type="button"
-                class="btn btn-outline-secondary btn-sm mr-3"
+                class="btn btn-outline-secondary btn-xs mr-3 "
               >
                 Edit Trip
               </button>
-            </span>
-
-            <span>
-              <button type="button" class="btn btn-secondary btn-sm mr-1">
-                Delete Trip
-              </button>
-            </span>
-            <br></br><br></br>
-            <h4>National Park Full Name</h4>
-            <h4 style={{ fontWeight: "lighter" }}>Trip Dates</h4>
-            <span>
-              <button
-                type="button"
-                class="btn btn-outline-secondary btn-sm mr-3"
-              >
-                Edit Trip
-              </button>
-            </span>
-
-            <span>
-              <button type="button" class="btn btn-secondary btn-sm mr-1">
-                Delete Trip
-              </button>
+              <span>
+                <button type="button" class="btn btn-secondary btn-xs mr-1 ">
+                  Delete Trip
+                </button>
+              </span>
             </span>
           </div>
         </div>
