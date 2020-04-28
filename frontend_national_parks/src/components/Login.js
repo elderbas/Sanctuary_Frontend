@@ -57,18 +57,17 @@ class Login extends Component {
     fetch(`http://localhost:3000/current_user`, {
       method: "GET",
       header: {
-        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
       },
     })
       .then((response) => response.json())
       .then((data) => {
         console.log("current user", data);
       });
-      this.findUser();
+    this.findUser();
   };
 
   render() {
-    
     const { fields } = this.state;
     if (this.state.redirect) {
       return (

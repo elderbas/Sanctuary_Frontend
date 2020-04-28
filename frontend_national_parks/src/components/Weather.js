@@ -5,17 +5,11 @@ import "react-open-weather/lib/css/ReactWeather.css";
 
 class Weather extends Component {
   render() {
+    let apikey = "ed44ba84387bb0539b31ae64430ef2a4";
+
     return (
       <div className="Weather">
-        Weather Widget
-        goes here
-        {/* Not pulling from API, maybe because of login issues */}
-        <ReactWeather
-          forecast="today"
-          apikey="ed44ba84387bb0539b31ae64430ef2a4"
-          type="city"
-          value="Austin"
-        />
+        <ReactWeather forecast="today" apikey={apikey} type="auto" />
       </div>
     );
   }

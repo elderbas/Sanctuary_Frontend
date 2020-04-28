@@ -2,17 +2,28 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
 class InnerNav extends Component {
+  state = {
+    redirect: false,
+  };
 
-  removeToken = () => {
-    localStorage.removeItem('token')
-}
+  logOut = () => {
+    localStorage.removeItem("token");
+    this.setState({ redirect: true });
+  };
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
+  };
 
   render() {
     return (
       <nav
-        className="navbar fixed-top navbar-expand-lg navbar-light"
+        className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"
         style={{ backgroundColor: "white" }}
       >
+        {this.renderRedirect()}
         <a className="navbar-brand" href="/main">
           <h3 className="InnerLogo">Sanctuary</h3>
         </a>
@@ -33,12 +44,9 @@ class InnerNav extends Component {
           className="collapse navbar-collapse w-100 order-3 dual-collapse2"
           id="navbarSupportedContent"
         >
-          
           <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-          <span className="navbar-text mr-5">
-      Hi {this.props.currentUser}
-    </span>
+            <li className="nav-item">
+              <span className="navbar-text mr-5">Hi Jessica!</span>
             </li>
 
             <li className="nav-item">
@@ -59,9 +67,12 @@ class InnerNav extends Component {
               </a>
             </li>
 
-            <button type="button" className="btn btn-outline-secondary btn-sm mr-3" onClick={this.removeToken}>
+            <button
+              type="button"
+              className="btn btn-outline-secondary btn-sm mr-3"
+              onClick={this.logOut}
+            >
               Log Out
-              
             </button>
           </ul>
         </div>

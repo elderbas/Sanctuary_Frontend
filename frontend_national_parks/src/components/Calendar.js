@@ -7,10 +7,10 @@ class Calendar extends Component {
     date: new Date(),
   };
 
-onClickDay = (value, event) => {
-  alert('clicked day: ' , value)
-  this.setState({ date: value})
-}
+  onClickDay = (value, event) => {
+    alert("clicked day: ", value);
+    this.setState({ date: value });
+  };
 
   // onClick = (event) => {
   //   this.setState({
@@ -20,21 +20,14 @@ onClickDay = (value, event) => {
 
   onChange = (date) => {
     this.setState({
-      date
+      date,
     });
   };
 
   render() {
     return (
       <div className="Calendar">
-        <ReactCalendar
-        onChange={this.onChange}
-          value={this.state.date}
-
-
-        
-
-        />
+        <ReactCalendar onChange={this.onChange} value={this.state.date} />
       </div>
     );
   }
