@@ -35,15 +35,11 @@ class ParkCard extends Component {
     this.setState((prevState) => ({
       modalOpen: !prevState.modalOpen,
     }));
-
-    this.setState({
-      parkId: this.props.key
-    });
   };
 
   render() {
     return (
-      <div className="ParkCard" >
+      <div className="ParkCard">
         <img
           src={this.props.imageURL}
           alt={this.props.altText}
@@ -80,7 +76,7 @@ class ParkCard extends Component {
             </div>
             <button
               type="button"
-              class="close"
+              className="close"
               data-dismiss="modal"
               aria-label="Close"
               onClick={this.showModal}
@@ -89,13 +85,13 @@ class ParkCard extends Component {
             </button>
           </Modal.Header>
           <Modal.Body className="modalBody">
-            <div className="modalImage" s>
+            <div className="modalImage">
               <img
                 src={this.props.imageURL}
                 alt={this.props.altText}
                 height="400px"
-                marginLeft="30px"
-                paddingLeft="30px"
+                marginleft="30px"
+                paddingleft="30px"
               ></img>
             </div>
             <div style={{ textAlign: "center", fontSize: "25px" }}>
@@ -130,18 +126,16 @@ class ParkCard extends Component {
 
               <button
                 type="button"
-                class="btn btn-outline-secondary btn-xs"
+                className="btn btn-outline-secondary btn-xs"
                 onClick={this.saveTrip}
               >
                 Save Trip
               </button>
               <br></br>
               <br></br>
-              <a href={`mailto:${this.props.emailAddress}`}>
-                Direct Email{" "}
-              </a>
+              <a href={`mailto:${this.props.emailAddress}`}>Direct Email </a>
               <svg
-                class="bi bi-envelope"
+                className="bi bi-envelope"
                 width="1em"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -149,21 +143,21 @@ class ParkCard extends Component {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
                 <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z" />
               </svg>
               <br></br>
               {this.props.phoneNumber}
               <svg
-                class="bi bi-phone"
+                className="bi bi-phone"
                 width="1em"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -171,20 +165,20 @@ class ParkCard extends Component {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M8 14a1 1 0 100-2 1 1 0 000 2z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
               </svg>
               <br></br>
               <a href={this.props.website}>{this.props.fullName} Website </a>
               <svg
-                class="bi bi-info-circle"
+                className="bi bi-info-circle"
                 width="1em"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -192,9 +186,9 @@ class ParkCard extends Component {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
                 <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
                 <circle cx="8" cy="4.5" r="1" />

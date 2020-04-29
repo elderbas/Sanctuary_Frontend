@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom"
+import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
   state = {
@@ -44,17 +44,14 @@ class Signup extends Component {
         },
       }),
     })
-    .then((response) => response.json())
-    this.setState({ redirect: "/login"})
-
+      .then((response) => response.json())
+      .then((user) => (window.userId = user.id))
+      .then(this.setState({ redirect: "/login" }));
   };
 
   render() {
     if (this.state.redirect) {
-      return ( 
-        <Redirect to={{ pathname: "/login" }}
-        /> 
-      );
+      return <Redirect to={{ pathname: "/login" }} />;
     }
     return (
       <div className="SignUpBackgroundImage">
@@ -72,11 +69,11 @@ class Signup extends Component {
           </h1>
           <br></br>
           <form onSubmit={this.handleSubmit}>
-            <div class="form-row">
-              <div class="form-group col-md-6">
+            <div className="form-row">
+              <div className="form-group col-md-6">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="first_name"
                   name="first_name"
                   placeholder="First Name"
@@ -84,10 +81,10 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <div class="form-group col-md-6">
+              <div className="form-group col-md-6">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="last_name"
                   name="last_name"
                   placeholder="Last Name"
@@ -96,10 +93,10 @@ class Signup extends Component {
                 />
               </div>
 
-              <div class="form-group col-md-12">
+              <div className="form-group col-md-12">
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="inputEmail4"
                   name="email"
                   placeholder="Email"
@@ -108,10 +105,10 @@ class Signup extends Component {
                 />
               </div>
 
-              <div class="form-group col-md-5">
+              <div className="form-group col-md-5">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="inputZip"
                   name="zipcode"
                   placeholder="Zip Code"
@@ -119,40 +116,40 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <div class="form-group col-md-7">
+              <div className="form-group col-md-7">
                 <input
                   type="date"
-                  class="form-control"
-                  id="inputZip"
+                  className="form-control"
+                  id="inputBirthday"
                   name="birthday"
                   placeholder="Birthday"
                   value={this.state.birthday}
                   onChange={this.handleChange}
                 />
-                <small id="birthdayHelpBlock" class="form-text text-muted">
+                <small id="birthdayHelpBlock" className="form-text text-muted">
                   Enter your date of birth.
                 </small>
               </div>
 
-              <div class="form-group col-md-6">
+              <div className="form-group col-md-6">
                 <input
                   type="password"
-                  class="form-control"
-                  id="inputPassword4"
+                  className="form-control"
+                  id="inputPassword3"
                   name="password"
                   placeholder="Password"
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
-                <small id="passwordHelpBlock" class="form-text text-muted">
+                <small id="passwordHelpBlock" className="form-text text-muted">
                   Passwords must be 8-20 characters long.
                 </small>
               </div>
 
-              <div class="form-group col-md-6">
+              <div className="form-group col-md-6">
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="inputPassword4"
                   name="password_confirmation"
                   value={this.state.confirmpassword}
@@ -161,10 +158,10 @@ class Signup extends Component {
                 />
               </div>
             </div>
-            <div class="form-row text-center">
-              <div class="col-12">
+            <div className="form-row text-center">
+              <div className="col-12">
                 <br></br>
-                <button type="submit" class="btn btn-dark">
+                <button type="submit" className="btn btn-dark">
                   Sign Up
                 </button>
               </div>

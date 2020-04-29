@@ -5,33 +5,50 @@ import Calendar from "./Calendar";
 import Weather from "./Weather";
 
 class Main extends Component {
+  constructor() {
+    super();
 
-  componentDidMount() {
-    let token = localStorage.getItem("token");
-    console.log("token is", token);
-    
-    fetch(`http://localhost:3000/current_user`, {
-      method: "GET",
-      headers: {
-        Authorization: `Token ` + token,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("current user", data);
-      });
+    this.state = {
+      currentUserEmail: "",
+      users: [],
+      trips: [],
+      user: "",
+    };
   }
 
+  componentDidMount() {
+    fetch(`http://localhost:3000/users`)
+      .then((response) => response.json())
+      .then((users) => this.setState({ users }));
+    this.setState({
+      currentUserEmail: localStorage.getItem("currentUserEmail"),
+    });
+
+  
+  }
+
+  getUser = () => {
+    const users = this.state.users;
+    console.log("users from main", users);
+    console.log("first user from main", users[0]);
+
+    users.map((user) => {
+    this.setState({userId: user.id})
+      this.setState({userFirstName: user.first_name})
+   
+    })
+  };
+
+
+
   render() {
+    this.getUser()
     return (
       <div
         className="Main"
         style={{ height: "500vh", backgroundColor: "whitesmoke" }}
       >
-        <InnerNav
-          userEmail={this.props.userEmail}
-          user={this.props.currentUser}
-        />
+        <InnerNav />
         <ParkList />
         <Weather />
         <Calendar />
