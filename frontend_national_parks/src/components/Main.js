@@ -24,7 +24,10 @@ class Main extends Component {
       currentUserEmail: localStorage.getItem("currentUserEmail"),
     });
   }
-
+  
+// Goal is to map through all users in state and only 
+// grab the one who's email matches the current
+// localStorage("currentUserEmail")
   getUser = () => {
     const users = this.state.users;
     console.log("users from main", users);
