@@ -3,9 +3,9 @@ import React, { Component } from "react";
 class HomeNavBar extends Component {
   render() {
     return (
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -13,22 +13,22 @@ class HomeNavBar extends Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
         <div
-          class="collapse navbar-collapse w-100 order-3 dual-collapse2"
+          className="collapse navbar-collapse w-100 order-3 dual-collapse2"
           id="navbarSupportedContent"
         >
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/login">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="/login">
                 Login
               </a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="/signup">
+            <li className="nav-item">
+              <a className="nav-link" href="/signup">
                 Sign Up
               </a>
             </li>

@@ -1,28 +1,45 @@
 import React, { Component } from "react";
 import InnerNav from "./InnerNav";
+import TripCard from "./TripCard";
+
 
 class Trips extends Component {
-  state = {
-    currentUser: "",
-    trips: [],
-    userTrips: [],
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      currentUserEmail: "",
+      trips: [],
+      userTrips: [],
+    };
+  }
 
   componentDidMount() {
     fetch(`http://localhost:3000/trips`)
       .then((response) => response.json())
-      .then((trips) => this.setState({ trips }));
+      .then((trips) => 
+      setTimeout(
+        function () {        
+   this.setState({ trips });
+      }.bind(this), 
+      3000
+      )
+      )
+    this.setState({
+      currentUserEmail: localStorage.getItem("currentUserEmail")
+    })
   }
 
-  populateUserTrips = () => {
-    let userTrips = this.state.trips.filter(
-      (trip) => trip.user.first_name === this.state.currentUser
-    );
-    this.setState({ userTrips: userTrips });
-  };
+  // componentDidUpdate(){
+  //   fetch(`http://localhost:3000/trips`)
+  //   .then((response) => response.json())
+  //   .then((trips) => this.setState({ trips }));
+  // }
 
   render() {
-    console.log(this.state.trips);
+    let tripList = this.state.trips.slice(0,3);
+
+    console.log("tripList is", tripList)
     return (
       <div>
         <InnerNav />
@@ -33,58 +50,20 @@ class Trips extends Component {
             You have quite<br></br> the adventure<br></br> planned...
           </div>
           <div className="TripsList">
-            <h4>Yosemite National Park</h4>
-            <h4 style={{ fontWeight: "lighter" }}>May 5 - 8, 2021</h4>
-            <span>
-              <button
-                type="button"
-                class="btn btn-outline-secondary btn-xs mr-3 "
-              >
-                Edit Trip
-              </button>
-              <span>
-                <button type="button" class="btn btn-secondary btn-xs mr-1 ">
-                  Delete Trip
-                </button>
-              </span>
-            </span>
-
-            <br></br>
-            <br></br>
-            <h4>Sequoia & Kings Canyon</h4>
-            <h4 style={{ fontWeight: "lighter" }}>May 9 - 11, 2021</h4>
-
-            <span>
-              <button
-                type="button"
-                class="btn btn-outline-secondary btn-xs mr-3 "
-              >
-                Edit Trip
-              </button>
-            </span>
-            <span>
-              <button type="button" class="btn btn-secondary btn-xs mr-1 ">
-                Delete Trip
-              </button>
-            </span>
-
-            <br></br>
-            <br></br>
-            <h4>Death Valley National Park</h4>
-            <h4 style={{ fontWeight: "lighter" }}>May 12 - 14, 2021</h4>
-            <span>
-              <button
-                type="button"
-                class="btn btn-outline-secondary btn-xs mr-3 "
-              >
-                Edit Trip
-              </button>
-              <span>
-                <button type="button" class="btn btn-secondary btn-xs mr-1 ">
-                  Delete Trip
-                </button>
-              </span>
-            </span>
+            {tripList.map((trip) => {
+              if ( this.state.currentUserEmail === trip.user.email) {
+                return (
+                  <TripCard
+                    key={trip.id}
+                    parkName={trip.park.fullName}
+                    startDate={trip.start_date}
+                    endDate={trip.end_date}
+                  />
+                )
+              } else {
+                return null
+              }
+            })}
           </div>
         </div>
       </div>

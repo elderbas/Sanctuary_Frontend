@@ -12,6 +12,23 @@ class Profile extends Component {
     birthday: "",
   };
 
+  componentDidMount() {
+    const token = localStorage.token;
+    console.log("profile token is", token);
+    if (token) {
+      return fetch(`http://localhost:3000/current_user`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((resp) => resp.json())
+        .then((data) => console.log("data is", data));
+    }
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -36,11 +53,11 @@ class Profile extends Component {
             </h1>
             <br></br>
             <form onSubmit={this.handleSubmit}>
-              <div class="form-row">
-                <div class="form-group col-md-6">
+              <div className="form-row">
+                <div className="form-group col-md-6">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="first_name"
                     name="first_name"
                     // placeholder="First Name"
@@ -49,10 +66,10 @@ class Profile extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                <div class="form-group col-md-6">
+                <div className="form-group col-md-6">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="last_name"
                     name="last_name"
                     // placeholder="Last Name"
@@ -62,10 +79,10 @@ class Profile extends Component {
                   />
                 </div>
 
-                <div class="form-group col-md-12">
+                <div className="form-group col-md-12">
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     id="inputEmail4"
                     name="email"
                     // placeholder="Email"
@@ -75,39 +92,42 @@ class Profile extends Component {
                   />
                 </div>
 
-                <div class="form-group col-md-5">
+                <div className="form-group col-md-5">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="inputZip"
                     name="zipcode"
                     // placeholder="Zip Code"
                     placeholder="78745"
-                    value={this.state.zipcode}
+                    value=""
                     onChange={this.handleChange}
                   />
                 </div>
-                <div class="form-group col-md-7">
+                <div className="form-group col-md-7">
                   <input
                     type="date"
-                    class="form-control"
-                    id="inputZip"
+                    className="form-control"
+                    id="inputBirthday"
                     name="birthday"
                     // placeholder="Birthday"
                     placeholder="12/05/1990"
                     value={this.state.birthday}
                     onChange={this.handleChange}
                   />
-                  <small id="birthdayHelpBlock" class="form-text text-muted">
+                  <small
+                    id="birthdayHelpBlock"
+                    className="form-text text-muted"
+                  >
                     Enter your date of birth.
                   </small>
                 </div>
 
-                <div class="form-group col-md-6">
+                <div className="form-group col-md-6">
                   <input
                     type="password"
-                    class="form-control"
-                    id="inputPassword4"
+                    className="form-control"
+                    id="inputPassword3"
                     name="password"
                     placeholder="Password"
                     value={this.state.password}
@@ -115,10 +135,10 @@ class Profile extends Component {
                   />
                 </div>
 
-                <div class="form-group col-md-6">
+                <div className="form-group col-md-6">
                   <input
                     type="password"
-                    class="form-control"
+                    className="form-control"
                     id="inputPassword4"
                     name="password_confirmation"
                     value={this.state.confirmpassword}
@@ -126,14 +146,14 @@ class Profile extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                <small id="passwordHelpBlock" class="form-text text-muted">
+                <small id="passwordHelpBlock" className="form-text text-muted">
                   Passwords must be 8-20 characters long.
                 </small>
               </div>
-              <div class="form-row text-center">
-                <div class="col-12">
+              <div className="form-row text-center">
+                <div className="col-12">
                   <br></br>
-                  <button type="submit" class="btn btn-dark">
+                  <button type="submit" className="btn btn-dark">
                     Save
                   </button>
                 </div>

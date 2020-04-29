@@ -47,18 +47,18 @@ class Login extends Component {
         localStorage.setItem("token", data.jwt);
         localStorage.setItem("currentUserEmail", data.email);
       });
-
     this.setState({ redirect: "/main" });
     this.findUser();
   };
 
   findUser = () => {
-    let token = localStorage.getItem("token")
-    console.log("token is", token)
+    let token = localStorage.getItem("token");
+    console.log("token is", token);
+
     fetch(`http://localhost:3000/current_user`, {
       method: "GET",
       headers: {
-        "Authorization": `Token ` + token,
+        Authorization: `Bearer ` + token,
       },
     })
       .then((response) => response.json())
@@ -79,7 +79,7 @@ class Login extends Component {
 
     return (
       <div className="LoginBackgroundImage">
-        <NavBar c />
+        <NavBar />
         <br></br>
         <div className="LoginForm">
           <h1
@@ -93,11 +93,11 @@ class Login extends Component {
           </h1>
           <br></br>
           <form onSubmit={this.handleSubmit}>
-            <div class="form-row">
-              <div class="form-group col-md-12">
+            <div className="form-row">
+              <div className="form-group col-md-12">
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="inputEmail4"
                   name="email"
                   placeholder="Email"
@@ -106,10 +106,10 @@ class Login extends Component {
                 />
               </div>
 
-              <div class="form-group col-md-12">
+              <div className="form-group col-md-12">
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="inputPassword4"
                   name="password"
                   placeholder="Password"
@@ -118,10 +118,10 @@ class Login extends Component {
                 />
               </div>
             </div>
-            <div class="form-row text-center">
-              <div class="col-12">
+            <div className="form-row text-center">
+              <div className="col-12">
                 <br></br>
-                <button type="submit" class="btn btn-dark">
+                <button type="submit" className="btn btn-dark">
                   Log In
                 </button>
               </div>
