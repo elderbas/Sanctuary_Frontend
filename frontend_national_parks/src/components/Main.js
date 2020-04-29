@@ -23,8 +23,6 @@ class Main extends Component {
     this.setState({
       currentUserEmail: localStorage.getItem("currentUserEmail"),
     });
-
-  
   }
 
   getUser = () => {
@@ -33,16 +31,13 @@ class Main extends Component {
     console.log("first user from main", users[0]);
 
     users.map((user) => {
-    this.setState({userId: user.id})
-      this.setState({userFirstName: user.first_name})
-   
-    })
+      this.setState({ userId: user.id });
+      this.setState({ userFirstName: user.first_name });
+    });
   };
 
-
-
   render() {
-    this.getUser()
+    this.getUser();
     return (
       <div
         className="Main"
