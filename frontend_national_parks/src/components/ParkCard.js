@@ -35,6 +35,46 @@ class ParkCard extends Component {
     this.setState((prevState) => ({
       modalOpen: !prevState.modalOpen,
     }));
+    this.setState({ city: this.props.city });
+    localStorage.setItem("modalCity", this.props.city);
+    this.getWeather();
+  };
+
+  getWeather = () => {
+    let latLong = this.props.latLong;
+    let newLatLong = latLong.split(", ");
+    let lat = newLatLong[0].slice(5, -1);
+    let lon = newLatLong[1].slice(5, -1);
+
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=124f605357a675f00becfb832b5d9e3f&units=imperial`
+    )
+      .then((response) => response.json())
+      .then((data) => this.setWeather(data));
+  };
+
+  setWeather = (data) => {
+    localStorage.setItem("weatherTemp", Math.floor(data.main.temp));
+    localStorage.setItem("weatherHumidity", data.main.humidity);
+    localStorage.setItem("weatherWind", Math.floor(data.wind.speed));
+    localStorage.setItem("weatherClouds", data.clouds.all);
+    localStorage.setItem("weatherDescription", data.weather[0].description);
+
+    localStorage.setItem("sunrise", data.sys.sunrise);
+    let unix_sunrise = localStorage.getItem("sunrise");
+    var sunrise_date = new Date(unix_sunrise * 1000);
+    var sunrise_hours = sunrise_date.getHours();
+    var sunrise_minutes = "0" + sunrise_date.getMinutes();
+    var formattedSunrise = sunrise_hours + ":" + sunrise_minutes.substr(-2);
+    localStorage.setItem("formattedSunrise", formattedSunrise);
+
+    localStorage.setItem("sunset", data.sys.sunset);
+    let unix_sunset = localStorage.getItem("sunset");
+    var sunset_date = new Date(unix_sunset * 1000);
+    var sunset_hours = sunset_date.getHours() - 12;
+    var sunset_minutes = "0" + sunset_date.getMinutes();
+    var formattedSunset = sunset_hours + ":" + sunset_minutes.substr(-2);
+    localStorage.setItem("formattedSunset", formattedSunset);
   };
 
   render() {

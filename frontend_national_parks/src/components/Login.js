@@ -45,7 +45,7 @@ class Login extends Component {
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem("token", data.jwt);
-        localStorage.setItem("currentUserEmail", data.email);
+        localStorage.setItem("userEmail", data.email);
       });
     this.setState({ redirect: "/main" });
     this.findUser();
@@ -60,11 +60,7 @@ class Login extends Component {
       headers: {
         Authorization: `Bearer ` + token,
       },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("current user", data);
-      });
+    }).then((response) => response.json());
   };
 
   render() {

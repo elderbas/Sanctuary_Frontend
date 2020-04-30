@@ -3,12 +3,13 @@ import { Redirect } from "react-router-dom";
 
 class InnerNav extends Component {
   constructor(props) {
-    super(props)
-  
-  this.state = {
-    redirect: false,
+    super(props);
+
+    this.state = {
+      redirect: false,
+      user: this.props.user,
+    };
   }
-}
 
   logOut = () => {
     localStorage.removeItem("token");
@@ -51,7 +52,7 @@ class InnerNav extends Component {
         >
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <span className="navbar-text mr-5">Hi </span>
+              <span className="navbar-text mr-5">Hi Jessica!</span>
             </li>
 
             <li className="nav-item">

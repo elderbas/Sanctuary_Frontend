@@ -5,11 +5,11 @@ class Profile extends Component {
   state = {
     first_name: "",
     last_name: "",
-    email: localStorage.getItem("currentUserEmail"),
+    email: localStorage.getItem("userEmail"),
     password: "",
     password_confirmation: "",
     zipcode: null,
-    birthday: "",
+    birthday: localStorage.getItem("user0Birthday"),
   };
 
   componentDidMount() {

@@ -51,6 +51,7 @@ class ParkList extends Component {
             emailAddress={park.emailAddress}
             phoneNumber={park.phoneNumber}
             website={park.website}
+            latLong={park.latLong}
           />
         ))}
       </div>
