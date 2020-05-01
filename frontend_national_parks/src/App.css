@@ -256,12 +256,26 @@
   vertical-align: top;
   position: fixed;
 }
+.SimpleMap {
+  margin-top:5%;
+  margin-left: 70px;
+  width: 30%;
+  display: inline-block;
+  position: fixed;
+  border: 3px solid gray;
+  
+}
+
+.Map {
+  margin-top: 35%;
+  position: fixed; 
+}
 
 .Weather {
-  width: 24%;
-  margin-top: 7%;
+  width: 30%;
+  margin-top: 28%;
   margin-bottom: 20px;
-  margin-left: 88px;
+  margin-left: 69px;
   margin-right: 70px;
   display: inline-block;
   border: 3px solid gray;

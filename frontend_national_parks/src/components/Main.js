@@ -3,6 +3,7 @@ import InnerNav from "./InnerNav";
 import ParkList from "./ParkList";
 import Calendar from "./Calendar";
 import Weather from "./Weather";
+import SimpleMap from "./Map";
 
 class Main extends Component {
   constructor() {
@@ -23,7 +24,7 @@ class Main extends Component {
     this.setState({
       currentUserEmail: localStorage.getItem("currentUserEmail"),
     });
-    setTimeout(this.getUser, 5000);
+    // setTimeout(this.getUser, 10000);
   }
 
   getUser = () => {
@@ -104,7 +105,7 @@ class Main extends Component {
         <InnerNav user={this.state.userFirstName} />
         <ParkList />
         <Weather />
-        <Calendar />
+        <SimpleMap />
       </div>
     );
   }

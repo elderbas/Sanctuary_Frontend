@@ -44,7 +44,9 @@ class ParkCard extends Component {
     let latLong = this.props.latLong;
     let newLatLong = latLong.split(", ");
     let lat = newLatLong[0].slice(5, -1);
+    localStorage.setItem("lat", lat);
     let lon = newLatLong[1].slice(5, -1);
+    localStorage.setItem("lon", lon);
 
     fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=124f605357a675f00becfb832b5d9e3f&units=imperial`
