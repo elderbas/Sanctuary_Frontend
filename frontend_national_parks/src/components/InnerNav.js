@@ -51,13 +51,17 @@ class InnerNav extends Component {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <span className="navbar-text mr-5">Hi Jessica!</span>
-            </li>
+        
 
             <li className="nav-item">
               <a className="nav-link" href="/main">
                 Main
+              </a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="/map">
+                Map
               </a>
             </li>
 

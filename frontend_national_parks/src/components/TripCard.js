@@ -11,14 +11,18 @@ class TripCard extends Component {
           <Moment format="MMM DD, YYYY">{this.props.endDate}</Moment>
         </h4>
         <span>
-          <button
+          {/* <button
             type="button"
             className="btn btn-outline-secondary btn-xs mr-3 "
           >
             Edit Trip
-          </button>
+          </button> */}
           <span>
-            <button type="button" className="btn btn-secondary btn-xs mr-1 ">
+            <button
+              type="button"
+              className="btn btn-outline-secondary btn-xs mr-1 "
+              onClick={() => this.props.deleteTrip(this.props.id)}
+            >
               Delete Trip
             </button>
           </span>

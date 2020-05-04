@@ -10,12 +10,14 @@ class Weather extends Component {
     response: {},
     temp: localStorage.getItem("weatherTemp"),
     name: localStorage.getItem("modalCity"),
+    modalState: localStorage.getItem("modalState"),
     humidity: localStorage.getItem("weatherHumidity"),
     wind: localStorage.getItem("weatherWind"),
     clouds: localStorage.getItem("weatherClouds"),
     sunrise: localStorage.getItem("formattedSunrise"),
     sunset: localStorage.getItem("formattedSunset"),
     description: localStorage.getItem("weatherDescription"),
+    
   };
 
   render() {
@@ -28,7 +30,7 @@ class Weather extends Component {
             color: "dark gray",
           }}
         >
-          {this.state.name}
+          {this.state.name}, {this.state.modalState}
         </h1>
         <h5
           style={{

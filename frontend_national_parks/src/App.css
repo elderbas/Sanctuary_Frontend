@@ -1,8 +1,6 @@
 .App {
   background-color: whitesmoke;
   text-align: center;
-  /* Example of a google font from the api, included in html <head> */
-  /* font-family: 'Tangerine', serif; */
 }
 
 .App-logo {
@@ -138,7 +136,6 @@
   margin-bottom: 0;
   font-style: italic;
   color: white;
-  /* color: rgb(43, 66, 56); */
 }
 
 .TripsBackgroundImage {
@@ -247,6 +244,14 @@
   opacity: 40%;
 }
 
+.Video {
+  margin-top: 32%;
+  margin-left: 72px;
+  width: 50%;
+  display: inline-block;
+  position: fixed;
+}
+
 .Calendar {
   width: 30%;
   margin-top: 29%;
@@ -256,24 +261,10 @@
   vertical-align: top;
   position: fixed;
 }
-.SimpleMap {
-  margin-top:5%;
-  margin-left: 70px;
-  width: 30%;
-  display: inline-block;
-  position: fixed;
-  border: 3px solid gray;
-  
-}
-
-.Map {
-  margin-top: 35%;
-  position: fixed; 
-}
 
 .Weather {
   width: 30%;
-  margin-top: 28%;
+  margin-top: 7%;
   margin-bottom: 20px;
   margin-left: 69px;
   margin-right: 70px;
