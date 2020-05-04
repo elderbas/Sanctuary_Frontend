@@ -10,6 +10,7 @@ class ParkList extends Component {
 
     this.state = {
       parks: [],
+      favorites: []
     };
   }
 
@@ -25,6 +26,16 @@ class ParkList extends Component {
         )
       );
   }
+
+  addToFavorites = (fullName) => {
+    this.setState({favorites: [...this.state.favorites, fullName]})
+
+  localStorage.setItem("favorites", this.state.favorites)
+  console.log("favs", this.state.favorites)
+
+  }
+
+
   render() {
     let parkList = this.state.parks;
     return (
@@ -51,6 +62,8 @@ class ParkList extends Component {
             emailAddress={park.emailAddress}
             phoneNumber={park.phoneNumber}
             website={park.website}
+            latLong={park.latLong}
+            addToFavorites={this.addToFavorites}
           />
         ))}
       </div>

@@ -11,6 +11,7 @@ class ParkCard extends Component {
       modalOpen: false,
       date: [new Date(), new Date()],
       parkId: null,
+      heartfill: false,
     };
   }
 
@@ -35,11 +36,58 @@ class ParkCard extends Component {
     this.setState((prevState) => ({
       modalOpen: !prevState.modalOpen,
     }));
+    this.setState({ city: this.props.city });
+    localStorage.setItem("modalCity", this.props.city);
+    localStorage.setItem("modalState", this.props.state);
+    this.getWeather();
+  };
+
+  getWeather = () => {
+    let latLong = this.props.latLong;
+    let newLatLong = latLong.split(", ");
+    let lat = newLatLong[0].slice(5, -1);
+    localStorage.setItem("lat", lat);
+    let lon = newLatLong[1].slice(5, -1);
+    localStorage.setItem("lon", lon);
+
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=124f605357a675f00becfb832b5d9e3f&units=imperial`
+    )
+      .then((response) => response.json())
+      .then((data) => this.setWeather(data));
+  };
+
+  setWeather = (data) => {
+    localStorage.setItem("weatherTemp", Math.floor(data.main.temp));
+    localStorage.setItem("weatherHumidity", data.main.humidity);
+    localStorage.setItem("weatherWind", Math.floor(data.wind.speed));
+    localStorage.setItem("weatherClouds", data.clouds.all);
+    localStorage.setItem("weatherDescription", data.weather[0].description);
+
+    localStorage.setItem("sunrise", data.sys.sunrise);
+    let unix_sunrise = localStorage.getItem("sunrise");
+    var sunrise_date = new Date(unix_sunrise * 1000);
+    var sunrise_hours = sunrise_date.getHours();
+    var sunrise_minutes = "0" + sunrise_date.getMinutes();
+    var formattedSunrise = sunrise_hours + ":" + sunrise_minutes.substr(-2);
+    localStorage.setItem("formattedSunrise", formattedSunrise);
+
+    localStorage.setItem("sunset", data.sys.sunset);
+    let unix_sunset = localStorage.getItem("sunset");
+    var sunset_date = new Date(unix_sunset * 1000);
+    var sunset_hours = sunset_date.getHours() - 12;
+    var sunset_minutes = "0" + sunset_date.getMinutes();
+    var formattedSunset = sunset_hours + ":" + sunset_minutes.substr(-2);
+    localStorage.setItem("formattedSunset", formattedSunset);
   };
 
   render() {
     return (
       <div className="ParkCard">
+        <h5 style={{ fontSize: "8px", textAlign: "center" }}>
+          {this.props.fullName}
+        </h5>
+
         <img
           src={this.props.imageURL}
           alt={this.props.altText}
@@ -93,6 +141,7 @@ class ParkCard extends Component {
                 marginleft="30px"
                 paddingleft="30px"
               ></img>
+              
             </div>
             <div style={{ textAlign: "center", fontSize: "25px" }}>
               {" "}
@@ -108,6 +157,21 @@ class ParkCard extends Component {
             </div>
             <div className="parkDescription">{this.props.description}</div>
             <div className="parkContactInfo">
+              Add to Favorites <svg
+                onClick={this.heartClick}
+                class="bi bi-heart"
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                fill="red"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 01.176-.17C12.72-3.042 23.333 4.867 8 15z"
+                  clip-rule="evenodd"
+                />
+              </svg>
               <h5
                 className="SelectDates"
                 style={{

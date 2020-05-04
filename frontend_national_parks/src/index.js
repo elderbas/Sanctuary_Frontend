@@ -10,18 +10,20 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import Main from "./components/Main";
+import MapContainer from "./components/MapContainer";
 
 ReactDOM.render(
-    <Router>
-      <React.StrictMode>
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/main" component={Main} />
-        <Route exact path="/trips" component={Trips} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/" component={App} />
-      </React.StrictMode>
-    </Router>,
+  <Router>
+    <React.StrictMode>
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/main" component={Main} />
+      <Route exact path="/trips" component={Trips} />
+      <Route exact path="/profile" component={Profile} />
+      <Route exact path="/map" component={MapContainer} />
+      <Route exact path="/" component={App} />
+    </React.StrictMode>
+  </Router>,
   document.getElementById("root")
 );
 
