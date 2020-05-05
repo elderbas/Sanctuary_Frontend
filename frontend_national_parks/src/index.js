@@ -11,6 +11,7 @@ import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import Main from "./components/Main";
 import MapContainer from "./components/MapContainer";
+import About from "./components/About";
 
 ReactDOM.render(
   <Router>
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route exact path="/trips" component={Trips} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/map" component={MapContainer} />
+      <Route exact path="/about" component={About} />
       <Route exact path="/" component={App} />
     </React.StrictMode>
   </Router>,

@@ -313,3 +313,39 @@
 .ModalHeader {
   text-align: center;
 }
+
+/* About Page */
+
+.AboutBackground {
+
+  background: url("/grandteton3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  position: relative;
+
+}
+
+.AboutBox {
+  position: absolute;
+  top: 20vh;
+  left: 33%;
+  z-index: 9999;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  border: 3px solid rgb(80, 79, 79);
+}
+
+.Right {
+float: left;
+width: 50%;
+}
+
+.Left {
+  float: left;
+  width: 50%;
+}
+
