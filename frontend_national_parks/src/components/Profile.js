@@ -87,7 +87,7 @@ class Profile extends Component {
                     name="email"
                     // placeholder="Email"
                     placeholder="jessica.triana.tx@gmail.com"
-                    value={this.state.email}
+                    value={"jessica.triana.tx@gmail.com"}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -166,6 +166,7 @@ class Profile extends Component {
             day to the <br></br>next.
           </div>
         </div>
+        <div className="ParkName">Redwood National Park</div>
       </div>
     );
   }

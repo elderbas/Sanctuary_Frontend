@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import InnerNav from "./InnerNav";
-import { Link } from "react-router-dom";
-
 
 
 class About extends Component {
@@ -18,19 +16,18 @@ class About extends Component {
                 color: "dark gray",
               }}
             >
-              {" "}
               About Sanctuary
             </h1>
+            <br></br>
             <div style={{ textAlign: "center" }}>
-              <br></br>
-              This app was built for the National Park enthusiast who
-              <br></br>
-              is undeniably in love with the great outdoors.
-              <br></br>
-              <br></br>
-              <br></br>
+              <p>
+                This app was built for the National Park enthusiast who
+                <br></br>
+                is undeniably in love with the great outdoors.
+              </p>
+
               <div className="Left">
-                <h4 style={{ textAlign: "center" }}>Front End</h4>
+                <h5 style={{ textAlign: "center" }}>Front End</h5>
                 <ul
                   class="list-group list-group-flush"
                   style={{ textAlign: "center" }}
@@ -42,28 +39,37 @@ class About extends Component {
                 <br></br>
               </div>
               <div className="Right">
-                <h4 style={{ textAlign: "center" }}>Back End</h4>
+                <h5 style={{ textAlign: "center" }}>Back End</h5>
                 <ul
                   class="list-group list-group-flush"
                   style={{ textAlign: "center" }}
                 >
                   <li class="list-group-item">Ruby on Rails</li>
-                  <li class="list-group-item">PostreSQL</li>
+                  <li class="list-group-item">PostgreSQL</li>
                   <li class="list-group-item">ActiveRecord</li>
                 </ul>
                 <br></br>
-               
               </div>
             </div>
-            Special thanks to the National Parks Service for "caring for these
-            <br></br>
-            special places so that all may experience our heritage."
-            <br></br><br></br>
+            <p
+              style={{
+                textAlign: "center",
+                fontStyle: "italic",
+                fontSize: "small",
+              }}
+            >
+              Thank you to the National Parks Service for "caring for these
+              <br></br>
+              special places so that all may experience our heritage."
+            </p>
+
             <p style={{ textAlign: "center", fontSize: "small" }}>
-            Contact the developer <a href="mailto:jessica.triana.tx@gmail.com">here</a>.
+              Contact the developer{" "}
+              <a href="mailto:jessica.triana.tx@gmail.com">here</a>.
             </p>
           </div>
         </div>
+        <div className="ParkName">Grand Teton National Park</div>
       </div>
     );
   }

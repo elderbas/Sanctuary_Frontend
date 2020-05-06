@@ -11,12 +11,12 @@ class TripCard extends Component {
           <Moment format="MMM DD, YYYY">{this.props.endDate}</Moment>
         </h4>
         <span>
-          {/* <button
+          <button
             type="button"
             className="btn btn-outline-secondary btn-xs mr-3 "
           >
             Edit Trip
-          </button> */}
+          </button>
           <span>
             <button
               type="button"

@@ -141,7 +141,6 @@ class ParkCard extends Component {
                 marginleft="30px"
                 paddingleft="30px"
               ></img>
-              
             </div>
             <div style={{ textAlign: "center", fontSize: "25px" }}>
               {" "}
@@ -157,8 +156,8 @@ class ParkCard extends Component {
             </div>
             <div className="parkDescription">{this.props.description}</div>
             <div className="parkContactInfo">
-              Add to Favorites <svg
-                onClick={this.heartClick}
+              Add to Favorites{" "}
+              <svg
                 class="bi bi-heart"
                 width="1em"
                 height="1em"
@@ -181,13 +180,11 @@ class ParkCard extends Component {
               >
                 Select trip dates:
               </h5>
-
               <DateRangePicker
                 onChange={this.onChange}
                 value={this.state.date}
               />
               <br />
-
               <button
                 type="button"
                 className="btn btn-outline-secondary btn-xs"
@@ -217,8 +214,8 @@ class ParkCard extends Component {
                   clipRule="evenodd"
                 />
                 <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z" />
-              </svg>   
-              {/* <br></br> */}
+              </svg>
+              <br></br>
               {this.props.phoneNumber}
               <svg
                 className="bi bi-phone"

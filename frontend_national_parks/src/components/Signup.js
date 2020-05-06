@@ -172,6 +172,7 @@ class Signup extends Component {
             Already have an account? Log in<Link to="/login"> here</Link>.
           </p>
         </div>
+        <div className="ParkName">Grand Canyon National Park</div>
       </div>
     );
   }
