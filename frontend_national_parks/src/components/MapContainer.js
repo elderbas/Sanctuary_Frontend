@@ -339,9 +339,9 @@ export class MapContainer extends Component {
         <InnerNav />
         <Map
           google={this.props.google}
-          zoom={4}
+          zoom={4.6}
           style={mapStyles}
-          initialCenter={{ lat: 39.8283, lng: -109.5795 }}
+          initialCenter={{ lat: 39.8283, lng: -98.5795 }}
         >
           {this.displayMarkers()}
         </Map>

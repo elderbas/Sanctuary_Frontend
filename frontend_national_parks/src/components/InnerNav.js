@@ -77,6 +77,12 @@ class InnerNav extends Component {
               </a>
             </li>
 
+            <li className="nav-item">
+              <a className="nav-link" href="/about">
+                About
+              </a>
+            </li>
+
             <button
               type="button"
               className="btn btn-outline-secondary btn-sm mr-3"

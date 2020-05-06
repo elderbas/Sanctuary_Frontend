@@ -11,6 +11,7 @@ class Home extends Component {
         <p className="Tagline">
           An effortless way to plan a National Park getaway
         </p>
+        <div className="ParkName">Yellowstone National Park</div>
       </div>
     );
   }

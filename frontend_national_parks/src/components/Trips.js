@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import InnerNav from "./InnerNav";
 import TripCard from "./TripCard";
+import TripCard2 from "./TripCard2";
 
 class Trips extends Component {
   constructor() {
@@ -23,8 +24,6 @@ class Trips extends Component {
   }
 
   deleteTrip = (trip) => {
-    console.log("trip", trip);
-    console.log("delete button clicked");
     alert("Trip Deleted");
     const body = { id: trip };
 
@@ -45,7 +44,7 @@ class Trips extends Component {
   };
 
   render() {
-    let tripList = this.state.trips.slice(0, 3);
+    let tripList = this.state.trips;
 
     return (
       <div>
@@ -54,27 +53,31 @@ class Trips extends Component {
 
         <div className="TripsBackgroundImage">
           <div className="TripsPhrase">
-            You have quite<br></br> the adventure<br></br> planned...
+            You have quite<br></br> the adventure<br></br> ahead...
           </div>
           <div className="TripsList">
-            {tripList.map((trip) => {
+          <TripCard2/>
+            {/* {tripList.map((trip) => {
               if (this.state.userEmail === trip.user.email) {
                 return (
-                  <TripCard
-                    key={trip.id}
-                    id={trip.id}
-                    parkName={trip.park.fullName}
-                    startDate={trip.start_date}
-                    endDate={trip.end_date}
-                    deleteTrip={this.deleteTrip}
-                  />
+                  // <TripCard
+                  //   key={trip.id}
+                  //   id={trip.id}
+                  //   parkName={trip.park.fullName}
+                  //   startDate={trip.start_date}
+                  //   endDate={trip.end_date}
+                  //   deleteTrip={this.deleteTrip}
+                  // />
+
+               
                 );
               } else {
                 return null;
               }
-            })}
+            })} */}
           </div>
         </div>
+        <div className="ParkName">Arches National Park</div>
       </div>
     );
   }

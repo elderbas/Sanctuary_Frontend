@@ -141,7 +141,6 @@ class ParkCard extends Component {
                 marginleft="30px"
                 paddingleft="30px"
               ></img>
-              
             </div>
             <div style={{ textAlign: "center", fontSize: "25px" }}>
               {" "}
@@ -157,8 +156,8 @@ class ParkCard extends Component {
             </div>
             <div className="parkDescription">{this.props.description}</div>
             <div className="parkContactInfo">
-              Add to Favorites <svg
-                onClick={this.heartClick}
+              Add to Favorites{" "}
+              <svg
                 class="bi bi-heart"
                 width="1em"
                 height="1em"
@@ -181,13 +180,11 @@ class ParkCard extends Component {
               >
                 Select trip dates:
               </h5>
-
               <DateRangePicker
                 onChange={this.onChange}
                 value={this.state.date}
               />
               <br />
-
               <button
                 type="button"
                 className="btn btn-outline-secondary btn-xs"
