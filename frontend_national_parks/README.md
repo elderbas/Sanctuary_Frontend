@@ -1,5 +1,5 @@
 Sanctuary
-- An app built to research an organize a National Park getaway
+- An app built to research and organize a National Park getaway
 
 To run the frontend:
 - In the terminal, navigate to the "frontend_national_parks" directory
