@@ -1,6 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sanctuary
+- An app built to research an organize a National Park getaway
 
-This is the frontend 
+To run the frontend:
+- In the terminal, navigate to the "frontend_national_parks" directory
+- Run "PORT=4000 npm start" to ensure a new port
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
